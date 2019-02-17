@@ -2,6 +2,9 @@
 
 #include <AccelStepper.h>
 
+int r =1;
+
+
 #define HALFSTEP 4
 // Motor pin 1 definitions
 #define motorPin1  4    // connected to IN1 on the ULN2003 driver 1
@@ -33,6 +36,10 @@ AccelStepper stepper3(HALFSTEP, motorPin9, motorPin10, motorPin11, motorPin12);
 
 
 void setup() {
+
+  Serial.begin(9600);
+
+  
   stepper1.setMaxSpeed(500.0);
   stepper1.setAcceleration(10000.0);
   stepper1.setSpeed(500.0);
@@ -55,22 +62,26 @@ void setup() {
 }
 
 void loop() {
+
+  
   // Update the Bounce instance :
   debouncer.update();
 
   // Get the updated value :
   int value = debouncer.fell();
-
+  
+  
   // Turn on or off the LED as determined by the state :
-  if (value == HIGH && stepper1.distanceToGo() == 0) {
-    stepper1.moveTo(stepper1.currentPosition()+2000);
+  if (stepper1.distanceToGo() == 0 && Serial.available()) {
+    r=Serial.read()-'0';
+    stepper1.moveTo(stepper1.currentPosition()+(r*100));
   } 
   
   stepper1.run();
 
   // Turn on or off the LED as determined by the state :
   if (value == HIGH && stepper2.distanceToGo() == 0) {
-    stepper2.moveTo(stepper2.currentPosition()+2000);
+    stepper2.moveTo(stepper2.currentPosition()+0);
   } 
   
   stepper2.run();
@@ -78,7 +89,7 @@ void loop() {
 
   // Turn on or off the LED as determined by the state :
   if (value == HIGH && stepper3.distanceToGo() == 0) {
-    stepper3.moveTo(stepper3.currentPosition()+2000);
+    stepper3.moveTo(stepper3.currentPosition()+000);
   } 
   
   stepper3.run();
