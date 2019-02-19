@@ -18,27 +18,31 @@ The Raspberry Pi board is connected to 3 Ultrasonic Sensors, through which it de
 The Arduino uses input communicated wirelessly from the Ultrasonic sensors to set custom vibrations that can communicate any obstructions, along with their range and direction relative to the user. This component allows users to act upon all the information gathered from our system to seamlessly move around without any hand-held aids.
 
 #### How we built it
-System-on-a-chips: Telus Devkit and Network, Arduino, Raspberry Pi Languages: Python, C++, C, JavaScript Hardware Implemented: Ultrasonic Sensors, Force Sensor, 4 Stepper Motors
+System-on-a-chip: Telus Devkit (to Azure), Arduino, Raspberry Pi
+Languages: Python, C++, C, JavaScript Hardware Implemented: Ultrasonic Sensors, Force Sensor, 4 Stepper Motors
 
 #### Challenges we ran into
-Setting up the Python Wireless Connection for Data collection
-Drawing out (and accordingly building) sound circuitry to ensure all UltraSonic Sensors provide accurate data
-Connecting Telus Devkit to Azure
-Stably building the housing components in wearable form for the systems
-Interfacing Raspberry Pi with Arduino
-Accomplishments that I'm proud of
+- Setting up the Python Wireless Connection for Data collection
+- Drawing out (and accordingly building) sound circuitry to ensure all UltraSonic Sensors provide accurate data
+- Streaming sensor data from TELUS boards to Azure DB
+- Stably building the housing components in wearable form for the systems
+- Interfacing Raspberry Pi with Arduino
+
+#### Accomplishments we're proud of
 We did not have actuators or vibrators available, so we really had to understand the inner workings of Stepper Motors and rewire them (as well as format the code accordingly) to have them work as vibrators using input from the Raspberry Pi
 
 Setting up the environments for all the systems-on-a-chip was a time-consuming and tedious job with much debugging. Getting through that took many hours, but we managed to successfully interface and integrate all components of our tech
 
 The data output by hardware was a bit challenging to work with, especially in the case of the UltraSonic Sensors. However, with much testing and documentation review, we did eventually achieve proper obstacle detection using these sensors.
 
+GPS location data was reliant on LTE antennas, which were not strong enough to function indoors. As a result the program would attempt to search for GPS signal for long periods of time without success and end up timing out. This caused the data stream to be slow and unstable but we were able to promptly pin-point this issue and adjust the code for indoor testing.
+
 #### What we learned
 Setting up multi-component IoT Systems, and the importance of considering different user groups and their specific design specs when prototyping.
 
 #### What's next for VisionSense
-making the wearable technology smaller and easier to wear
-using computer vision with an embedded camera that communicates (using audio) any pre-determined tags to user if they appear before the user
+- Making the wearable technology smaller and easier to wear
+- Using computer vision with an embedded camera that communicates (using audio) any pre-determined tags (machine learning - image recognition) to user if they appear within range
 
 #### Link to more detailed information
 https://www.hackster.io/137953/visionsense-2b9f4a
