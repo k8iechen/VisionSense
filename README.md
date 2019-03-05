@@ -1,5 +1,8 @@
 # VisionSense
 
+#### Link to more detailed information
+https://www.hackster.io/137953/visionsense-2b9f4a
+
 #### Inspiration
 Our team was discussing the advances in wearable technology, and how it helps us stay connected while making daily life easier in aspects like health, navigation, and safety. Eventually, we began to wonder how wearable technology could play these same roles in the lives of different user groups. We considered the design specifications and changes for groups that cannot use the sense of sight- primarily people with visual impairment or in occupations like mining/mountaineering that can at times be in pitch darkness.
 
@@ -43,6 +46,3 @@ Setting up multi-component IoT Systems, and the importance of considering differ
 #### What's next for VisionSense
 - Making the wearable technology smaller and easier to wear
 - Using computer vision with an embedded camera that communicates (using audio) any pre-determined tags (machine learning - image recognition) to user if they appear within range
-
-#### Link to more detailed information
-https://www.hackster.io/137953/visionsense-2b9f4a
